@@ -1,6 +1,10 @@
 package spring;
 import java.io.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component("fileRead")
+@Qualifier("default")
 public class FileRead implements ReaderInterface
 {
 	public String readString(){

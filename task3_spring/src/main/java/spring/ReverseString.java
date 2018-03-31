@@ -1,8 +1,11 @@
 package spring;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-public class ReverseString implements ProcessorInterface
+@Component("reverse")
+public class ReverseString implements ReverseInterface
 {
-	public String process(String s){
+	public String reverse(String s){
 
 		StringBuilder s1 = new StringBuilder();
  		s1.append(s);

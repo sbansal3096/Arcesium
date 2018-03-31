@@ -1,38 +1,36 @@
 package spring;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
+public class AppTest
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
+    @Test
+    public void checkMakePalindrome()
     {
-        super( testName );
+    	ApplicationContext appContext = new ClassPathXmlApplicationContext("Bean.xml");
+        ProcessorInterface processObj = (ProcessorInterface) appContext.getBean("palindrome");
+        String s2= processObj.process();
+        String s1="heyyeh";
+        assertEquals(s1,s2);
+        ((ClassPathXmlApplicationContext) appContext).close();
     }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
+    @Test
+    public void checkReverseString()
     {
-        return new TestSuite( AppTest.class );
+        ReverseString obj = new ReverseString();
+        String s1="hey",s2="yeh";
+        String s3=obj.reverse(s1);
+        assertEquals(s2,s3);
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
+    @Test
+    public void checkFileRead()
     {
-        assertTrue( true );
+        FileRead obj = new FileRead();
+        String s1="hey";
+        String s2=obj.readString();
+        assertEquals(s2,s1);
     }
 }
