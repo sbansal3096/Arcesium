@@ -3,20 +3,20 @@ package spring;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppTest
 {
-    @Test
+    /*@Test
     public void checkMakePalindrome()
     {
-    	ApplicationContext appContext = new ClassPathXmlApplicationContext("Bean.xml");
-        ProcessorInterface processObj = (ProcessorInterface) appContext.getBean("palindrome");
-        String s2= processObj.process();
+    	ApplicationContext appContext= new AnnotationConfigApplicationContext("AppConfig.class");
+    	MakePalindrome processObj = appContext.getBean("appConfig",MakePalindrome.class);
+      	String s2= processObj.process();
         String s1="heyyeh";
         assertEquals(s1,s2);
-        ((ClassPathXmlApplicationContext) appContext).close();
-    }
+        ((AnnotationConfigApplicationContext) appContext).close();
+    }*/
     @Test
     public void checkReverseString()
     {

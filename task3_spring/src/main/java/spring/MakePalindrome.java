@@ -2,18 +2,21 @@ package spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service("palindrome")
+
+@Component("palindrome")
 public class MakePalindrome implements ProcessorInterface
 {
-	@Autowired (required=true)
-    @Qualifier ("default")
 	ReaderInterface readObj;
-	
-	@Autowired(required=true)
-	@Qualifier ("reverse")
 	ReverseString reverseObj;
+
+	@Autowired(required=true)
+	@Qualifier("default")
+	public void setM(ReaderInterface readObj, ReverseString reverseObj) {
+		this.readObj=readObj;
+		this.reverseObj=reverseObj;
+	}
 	
 	public String process(){
 		String s = readObj.readString();
