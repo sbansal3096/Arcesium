@@ -7,8 +7,8 @@ public class App
     public static void main( String[] args )
     {
     	AnnotationConfigApplicationContext appContext= new AnnotationConfigApplicationContext(AppConfig.class);
-        MakePalindrome processObj = appContext.getBean("palindrome",MakePalindrome.class);
-        Writer writeObj = new Writer();
+        MakePalindrome processObj = appContext.getBean(MakePalindrome.class);
+        Writer writeObj = appContext.getBean(Writer.class);
         String str= processObj.process();
         writeObj.writeString(str);
         ((AnnotationConfigApplicationContext) appContext).close();

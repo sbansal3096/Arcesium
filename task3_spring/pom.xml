@@ -35,5 +35,10 @@
     	<artifactId>spring-beans</artifactId>
     	<version>5.0.4.RELEASE</version>
     </dependency>
+    <dependency>
+    <groupId>javax.inject</groupId>
+    <artifactId>javax.inject-tck</artifactId>
+    <version>1</version>
+</dependency>
   </dependencies>
 </project>

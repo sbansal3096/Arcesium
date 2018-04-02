@@ -2,21 +2,20 @@ package spring;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppTest
 {
-    /*@Test
+    @Test
     public void checkMakePalindrome()
     {
-    	ApplicationContext appContext= new AnnotationConfigApplicationContext("AppConfig.class");
-    	MakePalindrome processObj = appContext.getBean("appConfig",MakePalindrome.class);
-      	String s2= processObj.process();
+    	AnnotationConfigApplicationContext appContext= new AnnotationConfigApplicationContext(AppConfig.class);
+        MakePalindrome processObj = appContext.getBean(MakePalindrome.class);
+        String s2= processObj.process();
         String s1="heyyeh";
         assertEquals(s1,s2);
         ((AnnotationConfigApplicationContext) appContext).close();
-    }*/
+    }
     @Test
     public void checkReverseString()
     {
