@@ -6,18 +6,19 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class MakePalindrome implements ProcessorInterface
+public class MakePalindrome implements Processor
 {
-	ReaderInterface readObj;
+	Reader readObj;
 	ReverseString reverseObj;
 
 	@Inject
 	@Qualifier("default")
-	public void setM(ReaderInterface readObj, ReverseString reverseObj) {
+	public void setM(Reader readObj, ReverseString reverseObj) {
 		this.readObj=readObj;
 		this.reverseObj=reverseObj;
 	}
 	
+	@Override
 	public String process(){
 		String s = readObj.readString();
  		StringBuilder s1 = new StringBuilder();

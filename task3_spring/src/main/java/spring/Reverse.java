@@ -1,5 +1,5 @@
 package spring;
 
-public interface ReverseInterface {
+public interface Reverse {
 	String reverse(String s);
 }

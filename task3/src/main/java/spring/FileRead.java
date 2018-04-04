@@ -9,6 +9,7 @@ public class FileRead implements ReaderInterface
                 try{
                         BufferedReader br = new BufferedReader(new FileReader(file));
                         s = br.readLine();
+                        br.close();
         	}catch(IOException e){
         		e.printStackTrace();
         	}

@@ -39,6 +39,6 @@
     <groupId>javax.inject</groupId>
     <artifactId>javax.inject-tck</artifactId>
     <version>1</version>
-</dependency>
+	</dependency>
   </dependencies>
 </project>

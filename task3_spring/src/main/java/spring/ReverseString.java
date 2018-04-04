@@ -4,8 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component("reverse")
 @Qualifier("default")
-public class ReverseString implements ReverseInterface
+public class ReverseString implements Reverse
 {
+	@Override
 	public String reverse(String s){
 
 		StringBuilder s1 = new StringBuilder();

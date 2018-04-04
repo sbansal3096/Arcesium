@@ -1,6 +1,6 @@
 package spring;
 
-public interface ReaderInterface
+public interface Reader
 {
 	String readString();
 }

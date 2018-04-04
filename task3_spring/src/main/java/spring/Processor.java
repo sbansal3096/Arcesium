@@ -1,6 +1,6 @@
 package spring;
 
-public interface ProcessorInterface{
+public interface Processor{
 	
 	String process();
 }

@@ -1,11 +1,6 @@
 package spring;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class Writer implements WriterInterface
+public interface Writer
 {
-	public void writeString(String s){
-		System.out.println(s);
-	}
+	void writeString(String s);
 }
