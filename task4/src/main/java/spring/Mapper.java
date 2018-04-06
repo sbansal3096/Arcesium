@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
 public interface Mapper {
 	
 	@Select("SELECT * FROM person")
-    public List<String>[] selectAllPerson();
+    public List<Person> selectAllPerson();
    
 	@Select("SELECT * FROM person WHERE id = #{id}")
-    public List<String> selectPerson(@Param("id") int id);
+    public Person selectPerson(@Param("id") int id);
    
-	@Insert("INSERT INTO person (firstname, secondname) VALUES (#{fname},#{sname)")
-    public int insertPerson(List<String> a);
+	@Insert("INSERT INTO person (firstname, secondname) VALUES (#{fname},#{sname});")
+    public int insertPerson(Person p);
 }

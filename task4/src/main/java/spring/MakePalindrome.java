@@ -7,19 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MakePalindrome implements Processor
 {
-	Reader readObj;
-	ReverseString reverseObj;
-
+	Reverse reverseObj;
+	
 	@Inject
-	@Qualifier("default")
-	public void setM(Reader readObj, ReverseString reverseObj) {
-		this.readObj=readObj;
+	public void setM(Reverse reverseObj) {
 		this.reverseObj=reverseObj;
 	}
 	
 	@Override
-	public String process(){
-		String s = readObj.readString();
+	public String process(String s){
  		StringBuilder s1 = new StringBuilder();
  		s1.append(s);
  		String s2 = reverseObj.reverse(s);

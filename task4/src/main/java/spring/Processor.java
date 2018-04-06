@@ -2,5 +2,5 @@ package spring;
 
 public interface Processor{
 	
-	String process();
+	String process(String s);
 }

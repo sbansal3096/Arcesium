@@ -11,7 +11,7 @@ public class AppTest
     {
     	AnnotationConfigApplicationContext appContext= new AnnotationConfigApplicationContext(AppConfig.class);
         MakePalindrome processObj = appContext.getBean(MakePalindrome.class);
-        String s2= processObj.process();
+        String s2= processObj.process("hey");
         String s1="heyyeh";
         assertEquals(s1,s2);
         ((AnnotationConfigApplicationContext) appContext).close();
@@ -21,7 +21,7 @@ public class AppTest
     {
         ReverseString obj = new ReverseString();
         String s1="hey",s2="yeh";
-        String s3=obj.reverse(s1);
+        String s3=obj.process(s1);
         assertEquals(s2,s3);
     }
     @Test
@@ -29,6 +29,22 @@ public class AppTest
     {
         FileRead obj = new FileRead();
         String s1="hey";
+        String s2=obj.readString();
+        assertEquals(s2,s1);
+    }
+    @Test
+    public void checkReverse()
+    {
+    	Reverse obj= new Reverse();
+    	String s1="hey";
+        String s2=obj.reverse(s1);
+        assertEquals(s2,s1);
+    }
+    @Test
+    public void checkDatabaseRead()
+    {
+    	DatabaseRead obj = new DatabaseRead();
+    	String s1="shubham bansal";
         String s2=obj.readString();
         assertEquals(s2,s1);
     }

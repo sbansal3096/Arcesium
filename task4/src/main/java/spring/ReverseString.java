@@ -1,17 +1,22 @@
 package spring;
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component/*("reverse")*/
+@Component
 @Qualifier("default")
-public class ReverseString implements Reverse
+public class ReverseString implements Processor
 {
+	Reverse reverseObj;
+	
+	@Inject
+	public void setM(Reverse reverseObj) {
+		this.reverseObj=reverseObj;
+	}
+	
 	@Override
-	public String reverse(String s){
-
-		StringBuilder s1 = new StringBuilder();
- 		s1.append(s);
- 		s1 = s1.reverse();
-        return s1.toString();
+	public String process (String s){
+		return reverseObj.reverse(s);
 	}
 }
