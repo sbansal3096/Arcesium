@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface Mapper {
+public interface PersonSql {
 	
 	@Select("SELECT * FROM person")
     public List<Person> selectAllPerson();
@@ -19,4 +19,10 @@ public interface Mapper {
    
 	@Insert("INSERT INTO person (firstname, secondname) VALUES (#{fname},#{sname});")
     public int insertPerson(Person p);
+	
+	 @Insert({"<script>", 
+	        "INSERT INTO  person (firstname,secondname) VALUES ",
+	        "<foreach collection='collection' item='p' index='index' separator = ',' >(#{p.fname},#{p.sname})</foreach>",
+	        "</script>"})
+	 public int insertAllPerson(@Param("collection") List<Person> collection);
 }

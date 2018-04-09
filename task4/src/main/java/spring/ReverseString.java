@@ -11,7 +11,7 @@ public class ReverseString implements Processor
 	Reverse reverseObj;
 	
 	@Inject
-	public void setM(Reverse reverseObj) {
+	public ReverseString(Reverse reverseObj) {
 		this.reverseObj=reverseObj;
 	}
 	

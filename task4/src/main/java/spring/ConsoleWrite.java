@@ -3,7 +3,7 @@ package spring;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Write implements Writer
+public class ConsoleWrite implements Writer
 {
 	@Override
 	public void writeString(String s){

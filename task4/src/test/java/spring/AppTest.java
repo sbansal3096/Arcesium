@@ -19,7 +19,8 @@ public class AppTest
     @Test
     public void checkReverseString()
     {
-        ReverseString obj = new ReverseString();
+    	Reverse r=new Reverse();
+        ReverseString obj = new ReverseString(r);
         String s1="hey",s2="yeh";
         String s3=obj.process(s1);
         assertEquals(s2,s3);
@@ -36,14 +37,15 @@ public class AppTest
     public void checkReverse()
     {
     	Reverse obj= new Reverse();
-    	String s1="hey";
+    	String s1="hey",s3="yeh";
         String s2=obj.reverse(s1);
-        assertEquals(s2,s1);
+        assertEquals(s2,s3);
     }
     @Test
     public void checkDatabaseRead()
     {
-    	DatabaseRead obj = new DatabaseRead();
+    	AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext(AppConfig.class);
+        Reader obj = context.getBean(DatabaseRead.class);
     	String s1="shubham bansal";
         String s2=obj.readString();
         assertEquals(s2,s1);

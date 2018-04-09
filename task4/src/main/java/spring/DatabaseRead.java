@@ -1,24 +1,29 @@
 package spring;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 @Component("databaseRead")
 public class DatabaseRead implements Reader{
 	
-	private Mapper mapper;
+	private PersonSql obj;
 	  
 	  @Inject
-	  public void setString(Mapper mapper)
+	  public DatabaseRead(PersonSql obj)
 	  {
-		  this.mapper=mapper;
+		  this.obj=obj;
 	  }
 	  
 	@Override
 	public String readString() {
-		
-		Person p=mapper.selectPerson(1);
+		Person p=obj.selectPerson(1);
 		return p.getFname()+" "+p.getSname();
+	}
+	
+	public List<Person> readPersonAll(){
+		return obj.selectAllPerson();
 	}
 
 }

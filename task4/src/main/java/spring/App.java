@@ -1,5 +1,6 @@
 package spring;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,26 +17,32 @@ public class App
         
     	Integer selector;
 		Scanner in = new Scanner(System.in);
-		System.out.println("Select the appropriate option - \n1) Console Reader \n2) File Read \n3) Database Read ");
+		System.out.println("Select the appropriate option - \n1) Console Reader \n2) File Read \n3) Database Read \n4) Database Read all");
 		selector = in.nextInt();
 		
 		switch (selector) {
 		case 1:
 			readObj = appContext.getBean(ConsoleRead.class);
-			writeObj = appContext.getBean(Write.class);;
+			writeObj = appContext.getBean(ConsoleWrite.class);;
 			break;
 		case 2:
 			readObj = appContext.getBean(FileRead.class);
-			writeObj = appContext.getBean(Write.class);
+			writeObj = appContext.getBean(ConsoleWrite.class);
 			break;
 		case 3:
 			readObj = appContext.getBean(DatabaseRead.class);
 			writeObj = appContext.getBean(DatabaseWrite.class);
 			break;
+		case 4:
+			readObj = appContext.getBean(DatabaseRead.class);
+			List<Person> lp=((DatabaseRead) readObj).readPersonAll();
+			writeObj = appContext.getBean(DatabaseWrite.class);
+			((DatabaseWrite) writeObj).writeAllPerson(lp);
+			break;
 		default:
 			System.out.println("Invalid selection");
 			readObj = appContext.getBean(FileRead.class);
-			writeObj = appContext.getBean(Write.class);
+			writeObj = appContext.getBean(ConsoleWrite.class);
 	}
 		System.out.println("Select the appropriate option - \n1) Reverse String \n2) Make Palindrome");
 		selector = in.nextInt();
