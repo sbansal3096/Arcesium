@@ -2,13 +2,16 @@ package spring;
 
 import java.util.List;
 import java.util.Scanner;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App 
 {
     public static void main( String[] args )
     {
+    	final Logger logger = LogManager.getLogger(App.class);
+    	logger.debug("hello");
     	AnnotationConfigApplicationContext appContext= new AnnotationConfigApplicationContext(AppConfig.class);
     	
     	Processor processObj;
@@ -40,7 +43,7 @@ public class App
 			((DatabaseWrite) writeObj).writeAllPerson(lp);
 			break;
 		default:
-			System.out.println("Invalid selection");
+			logger.warn("Invalid selection");
 			readObj = appContext.getBean(FileRead.class);
 			writeObj = appContext.getBean(ConsoleWrite.class);
 	}
@@ -55,7 +58,7 @@ public class App
 				processObj = appContext.getBean(MakePalindrome.class);
 				break;
 			default:
-				System.out.println("Invalid selection");
+				logger.warn("Invalid selection");
 				processObj = appContext.getBean(ReverseString.class);
 		}
 		
